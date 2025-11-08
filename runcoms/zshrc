@@ -11,3 +11,16 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+# When a terminal is opened open tmux automatically
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  exec tmux
+fi
+
+# Created by `pipx` on 2025-05-19 17:25:38
+export PATH="$PATH:/home/moritz/.local/bin"
+
+alias python="python3"
+alias paths="echo ${PATH} | tr : '\n'"
+
+export JAVA_HOME=/usr/lib.jvm/java-21-openjdk-amd64
+. "/home/moritz/.deno/env"
